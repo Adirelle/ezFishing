@@ -1,0 +1,14 @@
+## Interface: 30100
+
+## Title: ezFishing
+## Notes: Fishing made easier.
+## Author: Adirelle
+## Version: @project-version@ 
+## X-Date: @project-date-iso@
+## LoadManagers: AddonLoader
+## X-LoadOn-Always: delayed
+## OptionalDeps: Ace3
+## SavedVariables: ezFishingDB
+
+Core.lua
+
