@@ -179,7 +179,7 @@ end)
 
 function frame:CheckActivation()
 	if not InCombatLockdown() then
-		local mainHandId = tonumber(GetInventoryItemID("player", INVSLOT_MAINHAND))
+		local mainHandId = tonumber(GetInventoryItemID("player", INVSLOT_MAINHAND) or nil)
 		if mainHandId and poles[mainHandId] then
 			self:Show()
 			return
