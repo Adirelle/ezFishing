@@ -2,6 +2,12 @@
 -- Constants
 --------------------------------------------------------------------------------
 
+local defaults = { profile = {
+	autoLure = true,
+	autoLoot = true,
+	enhanceSounds = true,
+}}
+
 local fishingSkill = GetSpellInfo(7620)
 
 local mainHandSlot = 16
@@ -255,15 +261,13 @@ end
 function frame:ADDON_LOADED(_, addon)
 	if addon:lower() ~= "ezfishing" then return end
 	self:UnregisterEvent('ADDON_LOADED')
-	db = LibStub('AceDB-3.0'):New('ezFishingDB', {
-		profile = {
-			autoLure = true,
-			autoLoot = true,
-			enhanceSounds = true,				
-		}
-	}, true)
-	LibStub("AceConfig-3.0"):RegisterOptionsTable('ezFishing', GetOptions)
-	LibStub("AceConfigDialog-3.0"):AddToBlizOptions('ezFishing', 'ezFishing')		
+	if LibStub and LibStub("AceDB-3.0") and LibStub("AceConfigDialog-3.0") then
+		db = LibStub('AceDB-3.0'):New('ezFishingDB', defaults, true)
+		LibStub("AceConfig-3.0"):RegisterOptionsTable('ezFishing', GetOptions)
+		LibStub("AceConfigDialog-3.0"):AddToBlizOptions('ezFishing', 'ezFishing')
+	else
+		db = defaults
+	end
 	WorldFrame:HookScript('OnMouseDown', OnMouseDown_Hook)
 	self:CheckActivation()
 end
