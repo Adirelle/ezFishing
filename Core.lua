@@ -12,7 +12,6 @@ local cvarOverrides = {
 		Sound_SFXVolume = 1.0,
 		Sound_MusicVolume = 0.0,
 		Sound_AmbienceVolume = 0.0,
-		MapWaterSounds = 0,
 	},
 	always = {
 		autointeract = 0,
