@@ -36,10 +36,15 @@ local poles = {
 	[19022] = true, -- Nat Pagle's Extreme Angler FC-5000
 	[19970] = true, -- Arcanite Fishing Pole
 	[25978] = true, -- Seth's Graphite Fishing Pole
+	[43651] = true, -- Crafty's Pole
 	[44050] = true, -- Mastercraft Kalu'ak Fishing Pole
 	[45858] = true, -- Nat's Lucky Fishing Pole
 	[45991] = true, -- Bone Fishing Pole
 	[45992] = true, -- Jeweled Fishing Pole
+	[46337] = true, -- Staats' Fishing Pole
+	[52678] = true, -- Jonathan's Fishing Pole
+	[84660] = true, -- Pandaren Fishing Pole
+	[84661] = true, -- Dragon Fishing Pole
 }
 
 local lures = {
@@ -52,6 +57,9 @@ local lures = {
 	[ 7307] = { 100,  75, 10 }, -- Flesh Eating Worm
 	[34861] = { 100, 100, 10 }, -- Sharpened Fish Hook
 	[46006] = { 100, 100, 60 }, -- Glow Worm
+	[62373] = { 100, 100, 10 }, -- Feathered Lure
+	[67404] = {   0,  15, 10 }, -- Glass Fishing Bobber
+	[68049] = { 250, 150, 15 }, -- Heat-Treated Spinning Lure
 }
 
 local db
