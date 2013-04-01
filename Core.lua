@@ -61,11 +61,10 @@ local db
 --------------------------------------------------------------------------------
 
 local function GetFishingSkill()
-	for i = 1, GetNumSkillLines() do
-		local name, _, _, rank, _, modifier = GetSkillLineInfo(i)
-		if name == fishingSkill then
-			return rank + modifier
-		end
+	local _, _, _, fishing = GetProfessions()
+	if fishing then
+		local name, _, rank, _, _, _, _, modifier = GetProfessionInfo(fishing)
+		return rank + modifier
 	end
 	return 0
 end
