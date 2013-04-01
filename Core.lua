@@ -28,18 +28,18 @@ local cvarOverrides = {
 }
 
 local poles = {
-  [ 6256] = true, -- Fishing Pole
-  [ 6365] = true, -- Strong Fishing Pole
-  [ 6366] = true, -- Darkwood Fishing Pole
-  [ 6367] = true, -- Big Iron Fishing Pole',quality:1,icon:'INV_Fishingpole_01'};_
-  [12225] = true, -- Blump Family Fishing Pole
-  [19022] = true, -- Nat Pagle's Extreme Angler FC-5000
+	[ 6256] = true, -- Fishing Pole
+	[ 6365] = true, -- Strong Fishing Pole
+	[ 6366] = true, -- Darkwood Fishing Pole
+	[ 6367] = true, -- Big Iron Fishing Pole',quality:1,icon:'INV_Fishingpole_01'};_
+	[12225] = true, -- Blump Family Fishing Pole
+	[19022] = true, -- Nat Pagle's Extreme Angler FC-5000
 	[19970] = true, -- Arcanite Fishing Pole
-  [25978] = true, -- Seth's Graphite Fishing Pole
+	[25978] = true, -- Seth's Graphite Fishing Pole
 	[44050] = true, -- Mastercraft Kalu'ak Fishing Pole
-  [45858] = true, -- Nat's Lucky Fishing Pole
+	[45858] = true, -- Nat's Lucky Fishing Pole
 	[45991] = true, -- Bone Fishing Pole
-  [45992] = true, -- Jeweled Fishing Pole
+	[45992] = true, -- Jeweled Fishing Pole
 }
 
 local lures = {
