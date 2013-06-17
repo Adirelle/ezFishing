@@ -5,6 +5,7 @@
 local defaults = { profile = {
 	autoLure = true,
 	autoLoot = true,
+	autoTracking = true,
 	enhanceSounds = true,
 }}
 
@@ -171,6 +172,20 @@ local function OverrideCVars(values)
 	end
 end
 
+local toggleTracking = nil
+
+local function SetAutoTracking(enabled)
+	for i = 1, GetNumTrackingTypes() do
+		local name, texture, active, category = GetTrackingInfo(i)
+		if category == 'spell' and texture == [[Interface\Icons\INV_Misc_Fish_02]] then
+			if (enabled and not active) or (active and not enabled) then
+				SetTracking(i, enabled)
+				return true
+			end
+		end
+	end
+end
+
 frame:SetScript('OnShow', function(self)
 	OverrideCVars(cvarOverrides.always)
 	if db.profile.autoLoot then
@@ -179,12 +194,19 @@ frame:SetScript('OnShow', function(self)
 	if db.profile.enhanceSounds then
 		OverrideCVars(cvarOverrides.enhanceSounds)
 	end
+	if db.profile.autoTracking then
+		toggleTracking = SetAutoTracking(true)
+	end
 end)
 
 frame:SetScript('OnHide', function(self)
 	ClearOverrideBindings(frame)	
 	for name, value in pairs(cvarBackup) do
 		SetCVar(name, value)
+	end
+	if toggleTracking then
+		SetAutoTracking(false)
+		toggleTracking = nil
 	end
 	wipe(cvarBackup)
 end)
@@ -232,6 +254,11 @@ local function GetOptions()
 				autoLoot = {
 					name = 'Autoloot',
 					desc = 'Enable autolooting when a fishing pole is equipped.',
+					type = 'toggle',
+				},
+				autoTracking = {
+					name = 'Pool tracking',
+					desc = 'Toggole pool tracking when a fishing pole is equipped.',
 					type = 'toggle',
 				},
 				enhanceSounds = {
