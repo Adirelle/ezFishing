@@ -274,6 +274,16 @@ local function GetOptions()
 end	
 
 --------------------------------------------------------------------------------
+-- Slash commands
+--------------------------------------------------------------------------------
+
+SlashCmdList["EZFISHING"] = function()
+	InterfaceOptionsFrame_OpenToCategory("ezFishing")
+end
+SLASH_EZFISHING1 = "/ezfishing"
+SLASH_EZFISHING2 = "/ezfish"
+
+--------------------------------------------------------------------------------
 -- Event handling
 --------------------------------------------------------------------------------
 
@@ -316,4 +326,3 @@ frame:RegisterEvent('PLAYER_REGEN_DISABLED')
 frame:RegisterEvent('PLAYER_REGEN_ENABLED')
 frame:RegisterEvent('UNIT_INVENTORY_CHANGED')
 frame:RegisterEvent('ADDON_LOADED')
-
