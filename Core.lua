@@ -29,23 +29,24 @@ local cvarOverrides = {
 }
 
 local poles = {
-	[ 6256] = true, -- Fishing Pole
-	[ 6365] = true, -- Strong Fishing Pole
-	[ 6366] = true, -- Darkwood Fishing Pole
-	[ 6367] = true, -- Big Iron Fishing Pole
-	[12225] = true, -- Blump Family Fishing Pole
-	[19022] = true, -- Nat Pagle's Extreme Angler FC-5000
-	[19970] = true, -- Arcanite Fishing Pole
-	[25978] = true, -- Seth's Graphite Fishing Pole
-	[43651] = true, -- Crafty's Pole
-	[44050] = true, -- Mastercraft Kalu'ak Fishing Pole
-	[45858] = true, -- Nat's Lucky Fishing Pole
-	[45991] = true, -- Bone Fishing Pole
-	[45992] = true, -- Jeweled Fishing Pole
-	[46337] = true, -- Staats' Fishing Pole
-	[52678] = true, -- Jonathan's Fishing Pole
-	[84660] = true, -- Pandaren Fishing Pole
-	[84661] = true, -- Dragon Fishing Pole
+	[  6256] = true, -- Fishing Pole
+	[  6365] = true, -- Strong Fishing Pole
+	[  6366] = true, -- Darkwood Fishing Pole
+	[  6367] = true, -- Big Iron Fishing Pole
+	[ 12225] = true, -- Blump Family Fishing Pole
+	[ 19022] = true, -- Nat Pagle's Extreme Angler FC-5000
+	[ 19970] = true, -- Arcanite Fishing Pole
+	[ 25978] = true, -- Seth's Graphite Fishing Pole
+	[ 43651] = true, -- Crafty's Pole
+	[ 44050] = true, -- Mastercraft Kalu'ak Fishing Pole
+	[ 45858] = true, -- Nat's Lucky Fishing Pole
+	[ 45991] = true, -- Bone Fishing Pole
+	[ 45992] = true, -- Jeweled Fishing Pole
+	[ 46337] = true, -- Staats' Fishing Pole
+	[ 52678] = true, -- Jonathan's Fishing Pole
+	[ 84660] = true, -- Pandaren Fishing Pole
+	[ 84661] = true, -- Dragon Fishing Pole
+	[133755] = true, -- Underlight Angler
 }
 
 local lures = {
@@ -113,7 +114,7 @@ button:SetPoint("TOP", UIParent, "BOTTOM", 0, -5)
 
 button:SetScript("PreClick", function(self)
 	if UnitCastingInfo("player") then
-		return 
+		return
 	end
 	if db.profile.autoLure and not GetWeaponEnchantInfo() then
 		local lure = GetBestLure()
@@ -201,7 +202,7 @@ frame:SetScript('OnShow', function(self)
 end)
 
 frame:SetScript('OnHide', function(self)
-	ClearOverrideBindings(frame)	
+	ClearOverrideBindings(frame)
 	for name, value in pairs(cvarBackup) do
 		SetCVar(name, value)
 	end
@@ -229,19 +230,19 @@ end
 
 local options
 local function GetOptions()
-	if not options then	
+	if not options then
 		options = {
 			name = 'ezFishing',
 			type = 'group',
 			set = function(info, value)
 				local shown = frame:IsShown()
-				if shown then 
-					frame:Hide() 
+				if shown then
+					frame:Hide()
 				end
 				db.profile[info[#info]] = value
-				if shown then 
-					frame:Show() 
-				end				
+				if shown then
+					frame:Show()
+				end
 			end,
 			get = function(info)
 				return db.profile[info[#info]]
@@ -269,9 +270,9 @@ local function GetOptions()
 				},
 			}
 		}
-	end	
+	end
 	return options
-end	
+end
 
 --------------------------------------------------------------------------------
 -- Slash commands
